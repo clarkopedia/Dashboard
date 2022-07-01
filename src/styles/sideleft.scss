@@ -1,0 +1,117 @@
+@import '@/global';
+
+.SideLeft {
+  max-width: $mobile;
+  width: 100%;
+  height: 100%;
+  background-color: $dark;
+  overflow-y: auto;
+  position: relative;
+  text-transform: capitalize;
+  z-index: 3;
+  transition: all 300ms ease-in-out;
+  animation-name: left_to_right;
+  animation-duration: 600ms;
+
+  @media (max-width: $mobile-size) {
+    left: -$mobile;
+    position: absolute;
+    animation-name: right_to_left;
+
+    &.active {
+      left: 0;
+    }
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &-head {
+    color: white;
+    padding: $space;
+    position: sticky;
+    top: 0%;
+    z-index: 3;
+    background-color: $dark;
+    display: flex;
+    align-items: center;
+
+    &-icon {
+      width: 3rem;
+      height: 3rem;
+      margin-right: 1rem;
+    }
+
+    &-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: none;
+
+      @media (max-width: $mobile-size) {
+        display: block;
+      }
+    }
+  }
+
+  &-body {
+    padding-bottom: $space;
+
+    &-links {
+      &-link {
+        padding: 1rem $space;
+        cursor: pointer;
+        position: relative;
+        display: flex;
+        align-items: center;
+        color: white;
+        text-decoration: none;
+        z-index: 2;
+
+        &:hover {
+          background-color: $darker;
+          color: $light;
+
+          &::before {
+            position: absolute;
+            content: '';
+            background-color: $light;
+            width: 3px;
+            height: 50%;
+            top: 25%;
+            left: 0.0625rem;
+            bottom: 0;
+          }
+        }
+
+        &-name {
+          margin-left: 1rem;
+        }
+
+        &-icon {
+          font-size: $space * 0.75;
+        }
+
+        &-right_icon {
+          position: absolute;
+          right: 1rem;
+        }
+      }
+
+      &-blur_circle {
+        position: absolute;
+        background-color: white;
+        filter: blur(3rem);
+        z-index: 1;
+        width: $mobile * 0.5;
+        height: $mobile * 0.5;
+        left: -40%;
+        bottom: -50%;
+        border-radius: 50%;
+      }
+    }
+  }
+}

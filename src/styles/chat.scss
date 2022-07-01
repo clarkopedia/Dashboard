@@ -1,0 +1,115 @@
+@import '@/global';
+
+.Chat {
+  padding: $space * 0.5;
+  width: 50%;
+  @media (max-width: $mobile-size) {
+    width: 100%;
+  }
+
+  &-head {
+    @extend .align-center;
+    justify-content: space-between;
+    background-color: $grey;
+    padding: 1rem;
+    padding-right: 1rem;
+    border-radius: 5px;
+    flex-wrap: wrap;
+
+    &-left {
+      @extend .align-center;
+      color: $dark;
+      font-weight: 600;
+      padding: 1rem;
+      padding-left: 0;
+      
+      &-icon {
+        font-size: 1.75rem;
+      }
+
+      &-name {
+        padding-left: 0.5rem;
+
+        @media (min-width: $mobile-size) {
+          font-size: 1rem;
+          flex-wrap: wrap;
+        }
+
+        @media (min-width: $mobile-size+100px) {
+          font-size: 0.9rem;
+        }
+      }
+    }
+
+    &-right {
+      @extend .align-center;
+      background-color: #fafafa;
+      border-radius: 10px;
+      height: 3rem;
+      padding: $space * 0.5 $space * 0.5;
+      max-width: $mobile;
+      width: 100%;
+      font-weight: 600;
+
+      &-input {
+        border: none;
+        outline: none;
+        background-color: inherit;
+        padding-left: 0.5rem;
+        flex: 2;
+
+        &::placeholder {
+          text-transform: capitalize;
+          color: $dark;
+          font-weight: 600;
+        }
+      }
+
+      &-icon {
+        color: darken($color: $grey, $amount: 20);
+      }
+    }
+  }
+
+  &-lists {
+    margin-top: 1rem;
+    background-color: #fafafa;
+    padding: $space * 0.5;
+    border-radius: 5px;
+
+    &-item {
+      margin-bottom: 1rem;
+
+      &-top {
+        @extend .align-center;
+        justify-content: space-between;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+
+        &-left {
+          @extend .align-center;
+
+          &-img {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+          }
+
+          &-name {
+            margin-left: 1rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+          }
+        }
+
+        &-right {
+          color: grey;
+        }
+      }
+
+      &-body {
+        font-size: 0.9rem;
+      }
+    }
+  }
+}
